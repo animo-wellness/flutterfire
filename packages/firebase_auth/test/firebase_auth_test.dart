@@ -207,6 +207,7 @@ void main() {
         androidPackageName: 'com.example.app',
         androidInstallIfNotAvailable: false,
         androidMinimumVersion: "12",
+        dynamicLinkDomain: 'www.example.com'
       );
       expect(
         log,
@@ -220,6 +221,7 @@ void main() {
             'androidInstallIfNotAvailable': false,
             'androidMinimumVersion': '12',
             'app': auth.app.name,
+            'dynamicLinkDomain': 'www.example.com'
           }),
         ],
       );
