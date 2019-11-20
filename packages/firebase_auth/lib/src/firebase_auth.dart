@@ -141,16 +141,15 @@ class FirebaseAuth {
   }
 
   /// Sends a sign in with email link to provided email address.
-  Future<void> sendSignInWithEmailLink({
-    @required String email,
-    @required String url,
-    @required bool handleCodeInApp,
-    @required String iOSBundleID,
-    @required String androidPackageName,
-    @required bool androidInstallIfNotAvailable,
-    @required String androidMinimumVersion,
-    String dynamicLinkDomain
-  }) async {
+  Future<void> sendSignInWithEmailLink(
+      {@required String email,
+      @required String url,
+      @required bool handleCodeInApp,
+      @required String iOSBundleID,
+      @required String androidPackageName,
+      @required bool androidInstallIfNotAvailable,
+      @required String androidMinimumVersion,
+      String dynamicLinkDomain}) async {
     assert(email != null);
     assert(url != null);
     assert(handleCodeInApp != null);

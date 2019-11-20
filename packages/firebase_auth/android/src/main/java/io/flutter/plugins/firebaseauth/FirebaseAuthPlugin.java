@@ -336,7 +336,8 @@ public class FirebaseAuthPlugin implements MethodCallHandler {
   private void handleSendLinkToEmail(MethodCall call, Result result, FirebaseAuth firebaseAuth) {
     Map<String, Object> arguments = call.arguments();
     String email = arguments.get("email").toString();
-    Object dynamicLinkDomain = arguments.containsKey("dynamicLinkDomain") ? arguments.get("dynamicLinkDomain") : null;
+    Object dynamicLinkDomain =
+        arguments.containsKey("dynamicLinkDomain") ? arguments.get("dynamicLinkDomain") : null;
     ActionCodeSettings actionCodeSettings =
         ActionCodeSettings.newBuilder()
             .setUrl(arguments.get("url").toString())
