@@ -200,15 +200,14 @@ void main() {
 
     test('sendSignInWithEmailLink', () async {
       await auth.sendSignInWithEmailLink(
-        email: 'test@example.com',
-        url: 'http://www.example.com/',
-        handleCodeInApp: true,
-        iOSBundleID: 'com.example.app',
-        androidPackageName: 'com.example.app',
-        androidInstallIfNotAvailable: false,
-        androidMinimumVersion: "12",
-        dynamicLinkDomain: 'www.example.com'
-      );
+          email: 'test@example.com',
+          url: 'http://www.example.com/',
+          handleCodeInApp: true,
+          iOSBundleID: 'com.example.app',
+          androidPackageName: 'com.example.app',
+          androidInstallIfNotAvailable: false,
+          androidMinimumVersion: "12",
+          dynamicLinkDomain: 'www.example.com');
       expect(
         log,
         <Matcher>[
