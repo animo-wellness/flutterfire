@@ -230,17 +230,16 @@ void main() {
       );
     });
 
-    test('sendLinkToEmail', () async {
-      await auth.sendLinkToEmail(
-        appName,
-        email: 'test@example.com',
-        url: 'http://www.example.com/',
-        handleCodeInApp: true,
-        iOSBundleID: 'com.example.app',
-        androidPackageName: 'com.example.app',
-        androidInstallIfNotAvailable: false,
-        androidMinimumVersion: "12",
-      );
+    test('sendSignInWithEmailLink', () async {
+      await auth.sendSignInWithEmailLink(
+          email: 'test@example.com',
+          url: 'http://www.example.com/',
+          handleCodeInApp: true,
+          iOSBundleID: 'com.example.app',
+          androidPackageName: 'com.example.app',
+          androidInstallIfNotAvailable: false,
+          androidMinimumVersion: "12",
+          dynamicLinkDomain: 'www.example.com');
       expect(
         log,
         <Matcher>[
@@ -252,7 +251,8 @@ void main() {
             'androidPackageName': 'com.example.app',
             'androidInstallIfNotAvailable': false,
             'androidMinimumVersion': '12',
-            'app': appName,
+            'app': auth.app.name,
+            'dynamicLinkDomain': 'www.example.com'
           }),
         ],
       );
