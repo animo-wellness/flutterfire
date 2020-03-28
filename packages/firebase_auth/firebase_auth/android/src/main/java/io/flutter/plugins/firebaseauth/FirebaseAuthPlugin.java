@@ -340,6 +340,8 @@ public class FirebaseAuthPlugin implements MethodCallHandler {
   private void handleSendLinkToEmail(MethodCall call, Result result, FirebaseAuth firebaseAuth) {
     Map<String, Object> arguments = call.arguments();
     String email = arguments.get("email").toString();
+    Object dynamicLinkDomain =
+        arguments.containsKey("dynamicLinkDomain") ? arguments.get("dynamicLinkDomain") : null;
     ActionCodeSettings actionCodeSettings =
         ActionCodeSettings.newBuilder()
             .setUrl(arguments.get("url").toString())
@@ -349,6 +351,7 @@ public class FirebaseAuthPlugin implements MethodCallHandler {
                 arguments.get("androidPackageName").toString(),
                 (Boolean) arguments.get("androidInstallIfNotAvailable"),
                 arguments.get("androidMinimumVersion").toString())
+            .setDynamicLinkDomain(dynamicLinkDomain != null ? dynamicLinkDomain.toString() : null)
             .build();
 
     firebaseAuth
